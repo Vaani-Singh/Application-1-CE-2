@@ -2,13 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages  # ✅ Added for showing form validation messages
-from .forms import RegisterForm, LoginForm  # ✅ Import the new forms
-from django.shortcuts import render
+from django.contrib import messages  #  Added for showing form validation messages
+from .forms import RegisterForm, LoginForm  #  Import the new forms
 
 # Static pages
 def home(request):
-    return render(request, 'aboutpage.html')  # or 'home.html'
+    return render(request, 'aboutpage.html') 
 
 def aboutpage(request):
     return render(request, 'aboutpage.html')
@@ -87,7 +86,8 @@ def custom_logout(request):
 from django.shortcuts import render
 
 def register(request):
-    return render(request, 'register.html')
+    return render(request, 'dashboard.html', {'user': request.user})
+
 
 
 def dashboard_view(request):
